@@ -1,0 +1,175 @@
++ umask 000
+
++ GIT_LFS_SKIP_SMUDGE=1 git clone --branch="ARQ_BITBUCKET_PIPELINES_SFT" --depth 50 https://x-token-auth:$REPOSITORY_OAUTH_ACCESS_TOKEN@bitbucket.org/$BITBUCKET_REPO_FULL_NAME.git $BUILD_DIR
+Cloning into '/opt/atlassian/pipelines/agent/build'...
+
++ git reset --hard dcc2a1d9189b33cb1c16978851da89c4837b3881
+HEAD is now at dcc2a1d Merge branch 'master' into ARQ_BITBUCKET_PIPELINES_SFT
+
++ git config user.name bitbucket-pipelines
+
++ git config user.email commits-noreply@bitbucket.org
+
++ git config push.default current
+
++ git config http.${BITBUCKET_GIT_HTTP_ORIGIN}.proxy http://localhost:29418/
+
++ git remote set-url origin http://bitbucket.org/$BITBUCKET_REPO_FULL_NAME
+
++ echo ".bitbucket/pipelines/generated" >> .git/info/exclude
+
++ chmod 777 $BUILD_DIR
+
++ dotnet build SINISTRO\\SFT\\Mitsui.Shift.Extractor.sln
+Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 1.13 sec for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.In/Mitsui.Shift.Extractor.In.csproj.
+  Restore completed in 1.95 sec for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/BoaVista/Mitsui.Shift.BoaVista.Business/Mitsui.Shift.BoaVista.Business.csproj.
+  Restore completed in 3.09 sec for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.Out.Full/Mitsui.Shift.Extractor.Out.Full.csproj.
+  Restore completed in 14.72 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/BoaVista/Mitsui.Shift.BoaVista.Entities/Mitsui.Shift.BoaVista.Entities.csproj.
+  Restore completed in 3.12 sec for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.Out.NewClaims/Mitsui.Shift.Extractor.Out.NewClaims.csproj.
+  Restore completed in 3.14 sec for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.Out.Batch/Mitsui.Shift.Extractor.Out.Batch.csproj.
+  Restore completed in 8.07 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Crivo/Mitsui.Shift.Crivo.Entities/Mitsui.Shift.Crivo.Entities.csproj.
+  Restore completed in 208.33 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/BoaVista/Mitsui.Shift.BoaVista.Dalc/Mitsui.Shift.BoaVista.Dalc.csproj.
+  Restore completed in 199.66 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Crivo/Mitsui.Shift.Crivo.Dalc/Mitsui.Shift.Crivo.Dalc.csproj.
+  Restore completed in 14.45 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Entities/Mitsui.Shift.Extractor.Entities.csproj.
+  Restore completed in 204.39 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Business/Mitsui.Shift.Extractor.Business.csproj.
+  Restore completed in 249.68 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Crivo/Mitsui.Shift.Crivo.Business/Mitsui.Shift.Crivo.Business.csproj.
+  Restore completed in 152.96 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Framework/Mitsui.Shift.Extractor.Framework.csproj.
+  Restore completed in 214.08 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Dalc/Mitsui.Shift.Extractor.Dalc/Mitsui.Shift.Extractor.Dalc.csproj.
+  Restore completed in 188.59 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.BoaVista.Proxy/Mitsui.Shift.BoaVista.Proxy.csproj.
+  Restore completed in 299.97 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Facade/Mitsui.Shift.Extractor.Facade/Mitsui.Shift.Extractor.Facade.csproj.
+  Restore completed in 228.36 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.Extractor.Proxy/Mitsui.Shift.Extractor.Proxy.csproj.
+  Restore completed in 328.04 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.Crivo.Proxy/Mitsui.Shift.Crivo.Proxy.csproj.
+  Restore completed in 309.72 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.OnBase.Proxy/Mitsui.Shift.OnBase.Proxy.csproj.
+  Restore completed in 759.96 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Mitsui.Shift.Extractor.UnitTest.csproj.
+  Restore completed in 790.39 ms for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Mitsui.Shift.Extractor.UnitTest.csproj.
+  Mitsui.Shift.BoaVista.Entities -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/BoaVista/Mitsui.Shift.BoaVista.Entities/bin/Debug/netcoreapp2.1/Mitsui.Shift.BoaVista.Entities.dll
+  Mitsui.Shift.Extractor.Entities -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Entities/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Entities.dll
+  Mitsui.Shift.Extractor.In -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.In/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.In.dll
+  Mitsui.Shift.Extractor.Framework -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Framework/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Framework.dll
+  Mitsui.Shift.Crivo.Entities -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Crivo/Mitsui.Shift.Crivo.Entities/bin/Debug/netcoreapp2.1/Mitsui.Shift.Crivo.Entities.dll
+  Mitsui.Shift.BoaVista.Dalc -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/BoaVista/Mitsui.Shift.BoaVista.Dalc/bin/Debug/netcoreapp2.1/Mitsui.Shift.BoaVista.Dalc.dll
+  Mitsui.Shift.Crivo.Dalc -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Crivo/Mitsui.Shift.Crivo.Dalc/bin/Debug/netcoreapp2.1/Mitsui.Shift.Crivo.Dalc.dll
+  Mitsui.Shift.Extractor.Proxy -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.Extractor.Proxy/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Proxy.dll
+  Mitsui.Shift.Extractor.Dalc -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Dalc/Mitsui.Shift.Extractor.Dalc/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Dalc.dll
+  Mitsui.Shift.BoaVista.Proxy -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.BoaVista.Proxy/bin/Debug/netcoreapp2.1/Mitsui.Shift.BoaVista.Proxy.dll
+  Mitsui.Shift.OnBase.Proxy -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.OnBase.Proxy/bin/Debug/netcoreapp2.1/Mitsui.Shift.OnBase.Proxy.dll
+  Mitsui.Shift.BoaVista.Business -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/BoaVista/Mitsui.Shift.BoaVista.Business/bin/Debug/netcoreapp2.1/Mitsui.Shift.BoaVista.Business.dll
+  Mitsui.Shift.Extractor.Business -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Business/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Business.dll
+  Mitsui.Shift.Crivo.Proxy -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Proxy/Mitsui.Shift.Crivo.Proxy/bin/Debug/netcoreapp2.1/Mitsui.Shift.Crivo.Proxy.dll
+  Mitsui.Shift.Crivo.Business -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Crivo/Mitsui.Shift.Crivo.Business/bin/Debug/netcoreapp2.1/Mitsui.Shift.Crivo.Business.dll
+  Mitsui.Shift.Extractor.UnitTest -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.UnitTest.dll
+  Mitsui.Shift.Extractor.Facade -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Core/Mitsui.Shift.Extractor.Facade/Mitsui.Shift.Extractor.Facade/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Facade.dll
+  Mitsui.Shift.Extractor.Out.Batch -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.Out.Batch/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Out.Batch.dll
+  Mitsui.Shift.Extractor.Out.NewClaims -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.Out.NewClaims/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Out.NewClaims.dll
+  Mitsui.Shift.Extractor.Out.Full -> /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Batch/Mitsui.Shift.Extractor.Out.Full/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.Out.Full.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:14.32
+
++ dotnet test SINISTRO\\SFT\\Test\\Mitsui.Shift.Extractor.UnitTest\\Mitsui.Shift.Extractor.UnitTest.csproj
+Test run for /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/Mitsui.Shift.Extractor.UnitTest.dll(.NETCoreApp,Version=v2.1)
+Microsoft (R) Test Execution Command Line Tool Version 16.1.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+  X RenderizarTemplateComInconsistencia [83ms]
+  Error Message:
+   Initialization method Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup threw exception. System.IO.FileNotFoundException: Could not find file '/opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/\Template\Mustache\TemplateEmailExtracao.html'..
+  Stack Trace:
+      at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/EmailBusinessTest.cs:line 52
+
+  X RenderizarTemplateSemInconsistencia [1ms]
+  Error Message:
+   Initialization method Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup threw exception. System.IO.FileNotFoundException: Could not find file '/opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/\Template\Mustache\TemplateEmailExtracao.html'..
+  Stack Trace:
+      at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/EmailBusinessTest.cs:line 52
+
+  X PossuiInconsistencia [1ms]
+  Error Message:
+   Initialization method Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup threw exception. System.IO.FileNotFoundException: Could not find file '/opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/\Template\Mustache\TemplateEmailExtracao.html'..
+  Stack Trace:
+      at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/EmailBusinessTest.cs:line 52
+
+  X NaoPossuiInconsistencia [1ms]
+  Error Message:
+   Initialization method Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup threw exception. System.IO.FileNotFoundException: Could not find file '/opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/\Template\Mustache\TemplateEmailExtracao.html'..
+  Stack Trace:
+      at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/EmailBusinessTest.cs:line 52
+
+  X EnviarEmailFull [1ms]
+  Error Message:
+   Initialization method Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup threw exception. System.IO.FileNotFoundException: Could not find file '/opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/\Template\Mustache\TemplateEmailExtracao.html'..
+  Stack Trace:
+      at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/EmailBusinessTest.cs:line 52
+
+  X EnviarEmailInconsistencia [1ms]
+  Error Message:
+   Initialization method Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup threw exception. System.IO.FileNotFoundException: Could not find file '/opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/bin/Debug/netcoreapp2.1/\Template\Mustache\TemplateEmailExtracao.html'..
+  Stack Trace:
+      at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path)
+   at Mitsui.Shift.Extractor.UnitTest.Business.EmailBusinessTest.Setup() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/EmailBusinessTest.cs:line 52
+
+  X ValidarExclusaoFisica [15ms]
+  Error Message:
+   Assert.IsTrue failed. 
+  Stack Trace:
+     at Mitsui.Shift.Extractor.UnitTest.Business.PurgeBusinessTest.ValidarExclusaoFisica() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/PurgeBusinessTest.cs:line 86
+
+  X ValidarPathVazio [2ms]
+  Error Message:
+   Assert.AreEqual failed. Expected:<Erro no processo de transformação: The path is empty.
+Parameter name: path>. Actual:<Erro no processo de transformação: The path is empty.
+Parameter name: path>. 
+  Stack Trace:
+     at Mitsui.Shift.Extractor.UnitTest.Business.TransformBusinessTest.ValidarPathVazio() in /opt/atlassian/pipelines/agent/build/SINISTRO/SFT/Test/Mitsui.Shift.Extractor.UnitTest/Business/TransformBusinessTest.cs:line 121
+
+
+Total tests: 80
+     Passed: 72
+     Failed: 8
+Test Run Failed.
+ Total time: 10.8460 Seconds
+Searching for test report files in directories named [test-results, failsafe-reports, test-reports, surefire-reports] down to a depth of 4
+Finished scanning for test reports. Found 0 test report files.
+Merged test suites, total number tests is 0, with 0 failures and 0 errors.

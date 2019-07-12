@@ -1,0 +1,37 @@
+﻿@page
+@model qs_csharp.Pages.SendEnvelopeWithTemplateModel
+@{
+    ViewData["Title"] = "SendEnvelopeWithTemplate";
+}
+
+@if (string.IsNullOrEmpty(ViewData["results"] as string))
+{
+
+<form method="post">
+    <input type="text" placeholder="Modelo ID" asp-for="EnvelopeTemplateInfo.ModeloId" value="@ViewData["TemplateId"]"
+           style="width:100%;height:2em;font:bold 1.5em arial;margin: 0.5em;" />
+
+    <input type="text" placeholder="E-mail" asp-for="EnvelopeTemplateInfo.Name" value="@ViewData["nomeDestinatario"]"
+           style="width:100%;height:2em;font:bold 1.5em arial;margin: 0.5em;" />
+
+    <input type="email" placeholder="E-mail" asp-for="EnvelopeTemplateInfo.Email" value="@ViewData["emailDestinatario"]"
+           style="width:100%;height:2em;font:bold 1.5em arial;margin: 0.5em;" />
+
+    <input type="text" placeholder="Assunto do e-mail" asp-for="EnvelopeTemplateInfo.AssuntoEmail" value="@ViewData["AssuntoEmail"]"
+           style="width:100%;height:2em;font:bold 1.5em arial;margin: 0.5em;" />
+
+    <input type="text" placeholder="Corpo do e-mail" asp-for="EnvelopeTemplateInfo.CorpoEmail" value=""
+           style="width:100%;height:2em;font:bold 1.5em arial;margin: 0.5em;" />
+
+    <input type="submit" value="Send the document for signature!"
+           style="width:20em;height:2em;background:#1f32bb;color:white;font:bold 1.5em arial;margin: 3em;" />
+</form>
+
+}
+else
+{
+    <h4 style="margin-top:3em;">@ViewData["results"]</h4>
+    <a href="~/">Continue</a>
+}
+
+
