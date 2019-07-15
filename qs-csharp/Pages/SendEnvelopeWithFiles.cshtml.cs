@@ -101,11 +101,10 @@ namespace qs_csharp.Pages
                 IncludeInDownload = "true",
                 Name = fileAnexo1.Name,
                 Order = "1",
-                Pages = "1",
                 SignerMustAcknowledge = "no_interaction",
                 DocumentBase64 = Convert.ToBase64String(ReadContent(anexo1)),
                 FileExtension = fileAnexo1.Extension,
-                TransformPdfFields = "true"
+                TransformPdfFields = "true"                
             };
 
             List<Document> documents = new List<Document> { document1 };
@@ -126,7 +125,6 @@ namespace qs_csharp.Pages
                     IncludeInDownload = "true",
                     Name = fileAnexo2.Name,
                     Order = "2",
-                    Pages = "1",
                     SignerMustAcknowledge = "no_interaction",
                     DocumentBase64 = Convert.ToBase64String(ReadContent(anexo2)),
                     FileExtension = fileAnexo2.Extension,
@@ -148,11 +146,10 @@ namespace qs_csharp.Pages
                 {
                     AuthoritativeCopy = false,
                     Display = "inline",
-                    DocumentId = "1",
+                    DocumentId = "3",
                     IncludeInDownload = "true",
                     Name = fileAnexo3.Name,
                     Order = "3",
-                    Pages = "1",
                     SignerMustAcknowledge = "no_interaction",
                     DocumentBase64 = Convert.ToBase64String(ReadContent(anexo3)),
                     FileExtension = fileAnexo3.Extension,
@@ -192,34 +189,7 @@ namespace qs_csharp.Pages
             };
 
             EnvelopeSummary results = envelopesApi.CreateEnvelope(accountId, envelopeDefinition);
-
-            string envelopeId = results.EnvelopeId;
-
-            var envelope = envelopesApi.GetEnvelope(accountId, envelopeId);
-
             
-            envelope.Recipients = new Recipients
-            {
-                CertifiedDeliveries = new List<CertifiedDelivery>
-                {
-                    new CertifiedDelivery
-                    {
-                        Email = signerEmail,
-                        Name = signerName,
-                        RoutingOrder = "1"
-                    }
-                }
-            };
-
-            envelope.Status = "sent";
-
-
-            envelope.PurgeState = null;
-
-            envelopesApi.Update(accountId, envelopeId, envelope );
-
-
-
 
             ViewData["results"] = $"Envelope status: {results.Status}. Envelope ID: {results.EnvelopeId}";
 
